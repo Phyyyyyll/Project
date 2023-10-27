@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Sorter</title>
+</head>
+<body>
+    <h1>NAMES</h1>
+    
+    <button onclick="sortNames()">Sort Names A-Z</button>
+
+    <ul id="nameList">
+        <li>John</li>
+        <li>Mary</li>
+        <li>Alice</li>
+        <li>Bob</li>
+        <li>Zoe</li>
+        <li>David</li>
+        <li>Emily</li>
+        <li>Frank</li>
+        <li>Grace</li>
+        <li>Henry</li>
+        <li>Isabel</li>
+        <li>Jack</li>
+        <li>Kate</li>
+        <li>Liam</li>
+        <li>Mia</li>
+        <li>Nathan</li>
+        <li>Olivia</li>
+        <li>Paul</li>
+        <li>Quinn</li>
+        <li>Rachel</li>
+        <li>Samuel</li>
+        <li>Tina</li>
+        <li>Ulysses</li>
+        <li>Victoria</li>
+        <li>William</li>
+        <li>Xander</li>
+        <li>Yara</li>
+        <li>Zachary</li>
+        <li>Violet</li>
+        <li>Xavier</li>
+    </ul>
+
+    <script>
+        function sortNames() {
+            const nameList = document.getElementById("nameList");
+            const items = nameList.getElementsByTagName("li");
+            const itemsArray = Array.from(items);
+
+            itemsArray.sort(function (a, b) {
+                return a.textContent.localeCompare(b.textContent);
+            });
+
+            // Clear the current list
+            while (nameList.firstChild) {
+                nameList.removeChild(nameList.firstChild);
+            }
+
+            // Append sorted items back to the list
+            itemsArray.forEach(function (item) {
+                nameList.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>
